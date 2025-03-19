@@ -29,7 +29,26 @@ const todos = (state = [], action) => {
   }
 };
 
-const store = createStore(todos);
+// persist
+const defaultValues = [
+  {
+    id: 0,
+    title: "hello",
+    completed: false,
+  },
+  {
+    id: 1,
+    title: "hello world",
+    completed: false,
+  },
+];
+
+// const initialValue = {
+//   todos: defaultValues,
+//   user: {},
+// };
+
+const store = createStore(todos, defaultValues);
 
 // action creators
 const addTodo = (title) => ({
@@ -44,10 +63,10 @@ const toggleTodo = (todoId) => ({
 
 console.log(store.getState());
 
-store.dispatch(addTodo("Learn React"));
-console.log(store.getState());
-store.dispatch(addTodo("Learn Redux"));
-console.log(store.getState());
+// store.dispatch(addTodo("Learn React"));
+// console.log(store.getState());
+// store.dispatch(addTodo("Learn Redux"));
+// console.log(store.getState());
 
-store.dispatch(toggleTodo(1));
-console.log(store.getState());
+// store.dispatch(toggleTodo(1));
+// console.log(store.getState());
